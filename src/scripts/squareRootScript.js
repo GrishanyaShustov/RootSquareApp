@@ -1,3 +1,8 @@
+let resultMessages = {
+    en: '',
+    ru: ''
+};
+
 document.getElementById('calculateBtn').addEventListener('click', () => {
     const number = parseFloat(document.getElementById('inputNumber').value);
     const rootType = document.getElementById('rootType').value;
@@ -6,29 +11,34 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
     let result = '';
 
     if (isNaN(number)) {
-        result = 'Please enter a valid number';
+        resultMessages.en = 'Please enter a valid number';
+        resultMessages.ru = 'Пожалуйста, введите правильное число';
     } else {
         switch (rootType) {
             case 'arithmetic':
                 if (number < 0) {
-                    result = lang === 'ru'
-                        ? 'Арифметический корень для отрицательных чисел не определен'
-                        : 'Arithmetic root for negative numbers is not defined';
+                    resultMessages.en = 'Arithmetic root for negative numbers is not defined';
+                    resultMessages.ru = 'Арифметический корень для отрицательных чисел не определен';
+
                 } else {
-                    result = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
+                    resultMessages.en = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
+                    resultMessages.ru = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
                 }
                 break;
             case 'complex':
                 if (number >= 0) {
-                    result = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
+                    resultMessages.en = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
+                    resultMessages.ru = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
                 } else {
-                    result = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
+                    resultMessages.en = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
+                    resultMessages.ru = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
                 }
                 break;
             default:
-                result = 'Invalid root type';
+                resultMessages.en = 'Invalid root type';
+                resultMessages.ru = 'Неправильный тип корня';
         }
     }
 
-    document.getElementById('result').textContent = result;
+    document.getElementById('result').textContent = resultMessages[lang];
 });
