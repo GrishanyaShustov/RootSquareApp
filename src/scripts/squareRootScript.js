@@ -22,8 +22,7 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
                 if (number >= 0) {
                     result = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
                 } else {
-                    const imaginaryPart = Math.sqrt(-number).toFixed(precision);
-                    result = `√${number} = ${imaginaryPart}i`;
+                    result = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
                 }
                 break;
             default:
