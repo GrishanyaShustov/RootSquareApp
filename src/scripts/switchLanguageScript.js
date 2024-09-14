@@ -11,6 +11,7 @@ function switchLanguage() {
 
         // Изменение текста в выпадающем списке
         document.querySelector("#rootType option[value='arithmetic']").textContent = "Арифметический";
+        document.querySelector("#rootType option[value='algebraic']").textContent = "Алгебраический";
         document.querySelector("#rootType option[value='complex']").textContent = "Комплексный";
 
         // Изменение плейсхолдеров для полей ввода
@@ -27,6 +28,7 @@ function switchLanguage() {
 
         // Изменение текста в выпадающем списке обратно на английский
         document.querySelector("#rootType option[value='arithmetic']").textContent = "Arithmetic";
+        document.querySelector("#rootType option[value='algebraic']").textContent = "Algebraic";
         document.querySelector("#rootType option[value='complex']").textContent = "Complex";
 
         // Изменение плейсхолдеров для полей ввода обратно на английский

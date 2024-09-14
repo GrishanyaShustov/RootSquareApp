@@ -30,8 +30,17 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
                     resultMessages.en = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
                     resultMessages.ru = `√${number} = ${Math.sqrt(number).toFixed(precision)}`;
                 } else {
-                    resultMessages.en = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
-                    resultMessages.ru = `√${number} = ${Math.sqrt(-number).toFixed(precision)}i`;
+                    resultMessages.en = `√${number} = ⼟${Math.sqrt(-number).toFixed(precision)}i`;
+                    resultMessages.ru = `√${number} = ⼟${Math.sqrt(-number).toFixed(precision)}i`;
+                }
+                break;
+            case 'algebraic':
+                if(number < 0){
+                    resultMessages.en = 'Algebraic root for negative numbers is not defined';
+                    resultMessages.ru = 'Алгебраический корень для отрицательных чисел не определен';
+                } else{
+                    resultMessages.en = `√${number} = ⼟${Math.sqrt(number).toFixed(precision)}`;
+                    resultMessages.ru = `√${number} = ⼟${Math.sqrt(number).toFixed(precision)}`;
                 }
                 break;
             default:
