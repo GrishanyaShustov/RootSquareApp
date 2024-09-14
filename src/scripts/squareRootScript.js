@@ -38,8 +38,8 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
                     resultMessages.en = 'Algebraic root for negative numbers is not defined';
                     resultMessages.ru = 'Алгебраический корень для отрицательных чисел не определен';
                 } else{
-                    resultMessages.en = `√${number} = ⼟${parseFloat(Math.sqrt(number).toFixed(precision))}`;
-                    resultMessages.ru = `√${number} = ⼟${parseFloat(Math.sqrt(number).toFixed(precision))}`;
+                    resultMessages.en = `√${number} = ±${parseFloat(Math.sqrt(number).toFixed(precision))}`;
+                    resultMessages.ru = `√${number} = ±${parseFloat(Math.sqrt(number).toFixed(precision))}`;
                 }
                 break;
             default:
