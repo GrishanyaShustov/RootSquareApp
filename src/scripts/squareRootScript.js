@@ -26,8 +26,8 @@ document.getElementById('calculateBtn').addEventListener('click', () => {
                 break;
             case 'complex':
                 if (number >= 0) {
-                    resultMessages.en = `√${number} = ${parseFloat(Math.sqrt(number).toFixed(precision))}`;
-                    resultMessages.ru = `√${number} = ${parseFloat(Math.sqrt(number).toFixed(precision))}`;
+                    resultMessages.en = `√${number} = ±${parseFloat(Math.sqrt(number).toFixed(precision))}`;
+                    resultMessages.ru = `√${number} = ±${parseFloat(Math.sqrt(number).toFixed(precision))}`;
                 } else {
                     resultMessages.en = `√${number} = ±${parseFloat(Math.sqrt(-number).toFixed(precision))}i`;
                     resultMessages.ru = `√${number} = ±${parseFloat(Math.sqrt(-number).toFixed(precision))}i`;
