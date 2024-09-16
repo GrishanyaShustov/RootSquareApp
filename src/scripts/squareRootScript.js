@@ -52,11 +52,12 @@ document.getElementById('calculateBtn').addEventListener('click', (y, x) => {
                     let imRoot2 = -absRootZ * Math.sin((phi + Math.PI) / 2);
 
                     // Форматирование результата
-                    let root1 = (imRoot1 >= 0) ? `${realRoot1.toFixed(precision)} + ${imRoot1.toFixed(precision)}i` : `${realRoot1.toFixed(precision)} - ${Math.abs(imRoot1).toFixed(precision)}i`;
-                    let root2 = (imRoot2 >= 0) ? `${realRoot2.toFixed(precision)} + ${imRoot2.toFixed(precision)}i` : `${realRoot2.toFixed(precision)} - ${Math.abs(imRoot2).toFixed(precision)}i`;
+                    let root1 = (imRoot1 >= 0) ? `${parseFloat(realRoot1.toFixed(precision))} + ${parseFloat(imRoot1.toFixed(precision))}i` : `${parseFloat(realRoot1.toFixed(precision))} - ${parseFloat(Math.abs(imRoot1).toFixed(precision))}i`;
+                    let root2 = (imRoot2 >= 0) ? `${parseFloat(realRoot2.toFixed(precision))} + ${parseFloat(imRoot2.toFixed(precision))}i` : `${parseFloat(realRoot2.toFixed(precision))} - ${parseFloat(Math.abs(imRoot2).toFixed(precision))}i`;
 
-                    resultMessages.en = `${z} = ${root1}<br></br>${z} = ${root2}`;
-                    resultMessages.ru = resultMessages.en;
+                    if(imNumber !== 0){resultMessages.en = `${z} = ${root1}<br></br>${z} = ${root2}`; resultMessages.ru = resultMessages.en;}
+                    if(imNumber === 0){resultMessages.en = `${z} = ${root1}`; resultMessages.ru = resultMessages.en;}
+
                 }
                 break;
             case 'algebraic':
