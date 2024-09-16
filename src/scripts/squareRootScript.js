@@ -35,28 +35,34 @@ document.getElementById('calculateBtn').addEventListener('click', (y, x) => {
                     let z = (imNumber >= 0) ? `√(${number} + ${imNumber}i)` : `√(${number} - ${Math.abs(imNumber)}i)`;
 
                     // Модуль числа (абсолютное значение)
-                    let absZ = Math.sqrt(Math.pow(number, 2) + Math.pow(imNumber, 2));
+                    let absZ = Math.sqrt(number * number + imNumber * imNumber);
 
                     // Аргумент числа (угол)
-                    let phi = Math.atan2(imNumber, number);
+                    let angle = Math.atan2(imNumber, number);
 
                     // Квадратный корень модуля числа
                     let absRootZ = Math.sqrt(absZ);
 
                     // Первый корень
-                    let realRoot1 = absRootZ * Math.cos(phi / 2);
-                    let imRoot1 = absRootZ * Math.sin(phi / 2);
+                    let realPart1 = parseFloat((absRootZ * Math.cos(angle / 2)).toFixed(precision));
+                    let imPart1 = parseFloat((absRootZ * Math.sin(angle / 2)).toFixed(precision));
 
                     // Второй корень
-                    let realRoot2 = absRootZ * Math.cos((phi + Math.PI) / 2);
-                    let imRoot2 = -absRootZ * Math.sin((phi + Math.PI) / 2);
+                    let realPart2 = parseFloat((absRootZ * Math.cos((angle + Math.PI*2) / 2)).toFixed(precision));
+                    let imPart2 = parseFloat((absRootZ * Math.sin((angle + Math.PI*2) / 2)).toFixed(precision));
 
                     // Форматирование результата
-                    let root1 = (imRoot1 >= 0) ? `${parseFloat(realRoot1.toFixed(precision))} + ${parseFloat(imRoot1.toFixed(precision))}i` : `${parseFloat(realRoot1.toFixed(precision))} - ${parseFloat(Math.abs(imRoot1).toFixed(precision))}i`;
-                    let root2 = (imRoot2 >= 0) ? `${parseFloat(realRoot2.toFixed(precision))} + ${parseFloat(imRoot2.toFixed(precision))}i` : `${parseFloat(realRoot2.toFixed(precision))} - ${parseFloat(Math.abs(imRoot2).toFixed(precision))}i`;
+                    let root1 = (imPart1 >= 0) ? `${realPart1} + ${imPart1}i` : `${realPart1} - ${Math.abs(imPart1)}i`;
+                    let root2 = (imPart2 >= 0) ? `${realPart2} + ${imPart2}i` : `${realPart2} - ${Math.abs(imPart2)}i`;
 
-                    if(imNumber !== 0){resultMessages.en = `${z} = ${root1}<br></br>${z} = ${root2}`; resultMessages.ru = resultMessages.en;}
-                    if(imNumber === 0){resultMessages.en = `${z} = ${root1}`; resultMessages.ru = resultMessages.en;}
+                    if(number <= 0 && imNumber === 0){
+                        resultMessages.en = `${z} = ${root1}`;
+                        resultMessages.ru = `${z} = ${root1}`;
+                    }
+                    else{
+                        resultMessages.en = `${z} = ${root1}<br>${z} = ${root2}`;
+                        resultMessages.ru = `${z} = ${root1}<br>${z} = ${root2}`;
+                    }
 
                 }
                 break;
