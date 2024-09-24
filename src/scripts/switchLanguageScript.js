@@ -10,6 +10,7 @@ function switchLanguage() {
         document.getElementById("precisionLabel").textContent = "Точность:";
         document.getElementById("languageLabel").textContent = "Язык:";
         document.getElementById("calculateBtn").textContent = "Вычислить";
+        document.getElementById("supportButton").textContent = "Служба поддержки";
 
         // Изменение текста в выпадающем списке
         document.querySelector("#rootType option[value='arithmetic']").textContent = "Арифметический";
@@ -29,6 +30,7 @@ function switchLanguage() {
         document.getElementById("precisionLabel").textContent = "Precision:";
         document.getElementById("languageLabel").textContent = "Language:";
         document.getElementById("calculateBtn").textContent = "Calculate";
+        document.getElementById("supportButton").textContent = "Support service";
 
         // Изменение текста в выпадающем списке обратно на английский
         document.querySelector("#rootType option[value='arithmetic']").textContent = "Arithmetic";
