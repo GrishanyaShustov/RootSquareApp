@@ -50,8 +50,20 @@
     </button>
 
     <script>
+        let currentLanguage = 'en';  // Значение по умолчанию
+
+        // Обработчик изменения языка
+        document.getElementById('language').addEventListener('change', function() {
+            currentLanguage = this.value;  // Сохраняем выбранный язык в переменной
+        });
+
+        // Обработчик нажатия на кнопку
         document.getElementById('supportButton').addEventListener('click', () => {
-            window.location.href = 'https://vk.com/sluzhbapoddershkihse'
+            if (currentLanguage === 'en') {
+                window.location.href = 'https://vk.com/club227561316'; // Англоязычная поддержка
+            } else if (currentLanguage === 'ru') {
+                window.location.href = 'https://vk.com/sluzhbapoddershkihse'; // Русскоязычная поддержка
+            }
         });
     </script>
 
